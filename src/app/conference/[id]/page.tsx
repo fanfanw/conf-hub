@@ -22,7 +22,8 @@ export default async function ConferenceDetailPage({ params }: { params: { id: s
     return notFound();
   }
 
-  const days = [...new Set(agenda.map(a => a.day_number))].sort();
+  const days = Array.from(new Set(agenda.map(a => a.day_number))).sort();
+
 
   return (
     <>
