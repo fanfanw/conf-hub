@@ -1,11 +1,11 @@
-import { getPublishedConferences } from '@/lib/supabase';
+import { getPublishedConferences, type Conference } from '@/lib/supabase';
 import Navbar from '@/components/layout/Navbar';
 import ConferenceCard from '@/components/ui/ConferenceCard';
 
 export const revalidate = 60;
 
 export default async function ConferencesPage() {
-  let conferences = [];
+  let conferences: Conference[] = [];
   try {
     conferences = await getPublishedConferences();
   } catch (e) {
